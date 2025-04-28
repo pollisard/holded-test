@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "generator"
+version = "0.1.0"
+description = ""
+authors = ["Data <data@holded.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.32.3"
+faker = "^35.2.0"
+confluent-kafka = "^2.10.0"
+fastavro = "^1.10.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
