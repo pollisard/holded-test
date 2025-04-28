@@ -42,7 +42,6 @@ class DeserializeAndEnrichEvent(beam.DoFn):
             logging.error("Failed to deserialize event")
             return
 
-        # Extract correlationId from headers
         header_dict = dict(headers)
         correlation_id = None
         for k, v in header_dict.items():
@@ -80,7 +79,7 @@ class WriteEventToMinio(beam.DoFn):
             ContentType='application/json'
         )
         logging.info(f"Saved event to Minio at {key}")
-        yield event  # Pass event forward
+        yield event
 
 
 class WriteEventToPostgres(beam.DoFn):
@@ -126,7 +125,7 @@ class WriteEventToPostgres(beam.DoFn):
         cursor.close()
         conn.close()
         logging.info(f"Inserted event into Postgres with correlationId {event['metadata']['correlationId']}")
-        yield event  # Optional: to continue further if needed
+        yield event
 
 class PrintElement(beam.DoFn):
     def process(self, element):

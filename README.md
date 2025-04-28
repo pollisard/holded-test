@@ -30,14 +30,14 @@ postgres:15                              0.0.0.0:5432->5432/tcp                 
 
 ## Tasks TODO
 
-- [ ] Implement the HTTP POST /collect method in `api/api/collect.py`
-    - [ ] Connect to Schema Registry
-    - [ ] Validate and serialize events in JSON
-    - [ ] Send valid event to Kafka `events.raw`
-    - [ ] Send invalid events to Kafka `events.dead.letter`
-- [ ] Implement Apache Beam Streaming application to read from Kafka
-    - [ ] Deserialize and validate the JSON using Schema Registry
-    - [ ] Transform the event to include the new `metadata` field
+- [x] Implement the HTTP POST /collect method in `api/api/collect.py`
+    - [x] Connect to Schema Registry
+    - [x] Validate and serialize events in JSON
+    - [x] Send valid event to Kafka `events.raw`
+    - [x] Send invalid events to Kafka `events.dead.letter`
+- [x] Implement Apache Beam Streaming application to read from Kafka
+    - [x] Deserialize and validate the JSON using Schema Registry
+    - [x] Transform the event to include the new `metadata` field
     - [ ] Send results to minio and postgresql.
 - [ ] Create schema for `events.raw` topic
     - [ ] Implement a bash to register schemas in Schema Registry (Optional)
